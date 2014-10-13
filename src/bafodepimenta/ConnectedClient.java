@@ -6,10 +6,10 @@ import java.net.Socket;
 
 public class ConnectedClient implements Runnable {
 
-	Server02 server;
+	ServerThread server;
 	Socket clientSocket;
 
-	public ConnectedClient(Server02 server, Socket clientSocket) {
+	public ConnectedClient(ServerThread server, Socket clientSocket) {
 		try {
 			this.server = server;
 			this.clientSocket = clientSocket;

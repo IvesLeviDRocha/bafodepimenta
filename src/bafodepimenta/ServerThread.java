@@ -6,11 +6,10 @@ import java.net.MulticastSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server02 implements Runnable {
+public class ServerThread implements Runnable {
 
-	public static final int PORT = 6969;
-	public static InetAddress SERVER_IP;
-	StringBuffer out = new StringBuffer("");
+	public Integer port = 6969;
+	StringBuffer content = new StringBuffer("");
 	String output;
 	ServerSocket serverSocket;
 	
@@ -18,8 +17,8 @@ public class Server02 implements Runnable {
 	MulticastSocket outSocket;
 	DatagramPacket outPacket;
 	
-	public Server02() throws Exception {
-		serverSocket = new ServerSocket(6970);
+	public ServerThread() throws Exception {
+		serverSocket = new ServerSocket(port);
 	}
 	
 	@Override
@@ -41,8 +40,8 @@ public class Server02 implements Runnable {
 		
 		try {
 			System.out.println("Server is up");
-			group = InetAddress.getByName("239.255.255.253");
-			outSocket = new MulticastSocket(PORT);
+			group = InetAddress.getByName("239.239.239.239");
+			outSocket = new MulticastSocket(port);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,8 +51,8 @@ public class Server02 implements Runnable {
 
 	private void broadcast() {
 		while(true) {
-			output = out.toString();
-			outPacket = new DatagramPacket(output.getBytes(), output.length(), group, PORT);
+			output = content.toString();
+			outPacket = new DatagramPacket(output.getBytes(), output.length(), group, port);
 			try {
 				outSocket.send(outPacket);
 				System.out.println("Server sends content.");
@@ -65,12 +64,12 @@ public class Server02 implements Runnable {
 	}
 	
 	public void addClient(Socket clientSocket) {
-		Server02 server = this;
+		ServerThread server = this;
 		new Thread(new ConnectedClient(server, clientSocket)).start();
 	}
 	
 	public void clientInput(String input) {
-		out.append("\n	"+input);
+		content.append("\n	"+input);
 	}
 	
 }

@@ -1,14 +1,14 @@
 package bafodepimenta;
 
-public class Teste02 {
+public class TesteGeral {
 
 	public static void main(String[] args) throws Exception {
 		
-		new Server02Thread();
+		new Server();
 		Thread.sleep(500);
 		
-		new Client02Thread("TETSUO");
-		new Client02Thread("KANEDA");
+		new Client("TETSUO", "KANEDAAAAAAAAAA");
+		new Client("KANEDA", "TETSUOOOOOOOOOO");
 		
 		
 	}
