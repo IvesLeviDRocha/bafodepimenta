@@ -17,10 +17,11 @@ public class ClientOutputManager {
 	}
 	
 	public void startOutput() {
-		try (Socket outsocket = new Socket(serverAddress, port);
-				PrintWriter out = new PrintWriter(
-						outsocket.getOutputStream(), true);
-		) {
+		try (
+				Socket outsocket = new Socket(serverAddress, port);
+				PrintWriter out = new PrintWriter(outsocket.getOutputStream(), true)
+			)
+		{
 			System.out.println(clientName+" connects to server.");
 			infiniteOutput(out);
 		} catch (Exception e) {

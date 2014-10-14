@@ -22,8 +22,9 @@ public class ClientInputManagerThread implements Runnable {
 	@Override
 	public void run() {
 			try (
-				MulticastSocket inSocket = new MulticastSocket(port);
-			) {
+					MulticastSocket inSocket = new MulticastSocket(port)
+				) 
+			{
 				InetAddress multicastGroup = InetAddress.getByName(group);
 				inSocket.joinGroup(multicastGroup);
 				receive(inSocket);

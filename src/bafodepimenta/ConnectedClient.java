@@ -10,19 +10,17 @@ public class ConnectedClient implements Runnable {
 	Socket clientSocket;
 
 	public ConnectedClient(ServerThread server, Socket clientSocket) {
-		try {
 			this.server = server;
 			this.clientSocket = clientSocket;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
 	public void run() {
-		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					clientSocket.getInputStream()));
+		try (
+				BufferedReader in = new BufferedReader(new InputStreamReader(
+						clientSocket.getInputStream()))
+			) 
+		{
 			while (true) {
 				String input = in.readLine();
 				server.clientInput(input);

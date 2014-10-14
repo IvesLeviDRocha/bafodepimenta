@@ -16,7 +16,9 @@ public class ServerClientManagerThread implements Runnable {
 
 	@Override
 	public void run() {
-			try (ServerSocket serverSocket = new ServerSocket(port))
+			try (
+					ServerSocket serverSocket = new ServerSocket(port)
+				)
 			{
 				while (true) {
 					receiveConnections(serverSocket);
