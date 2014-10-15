@@ -15,14 +15,12 @@ public class ClientOutputManager {
 		this.clientOutput = clientOutput;
 		this.port = port;
 	}
-	
+
 	public void startOutput() {
-		try (
-				Socket outsocket = new Socket(serverAddress, port);
-				PrintWriter out = new PrintWriter(outsocket.getOutputStream(), true)
-			)
-		{
-			System.out.println(clientName+" connects to server.");
+		try (Socket outsocket = new Socket(serverAddress, port);
+				PrintWriter out = new PrintWriter(outsocket.getOutputStream(),
+						true)) {
+			System.out.println(clientName + " connects to server.");
 			infiniteOutput(out);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,7 +30,8 @@ public class ClientOutputManager {
 	private void infiniteOutput(PrintWriter out) throws InterruptedException {
 		while (true) {
 			Thread.sleep(1000);
-			System.out.println(clientName+" sends "+clientOutput+" to server.");
+			System.out.println(clientName + " sends " + clientOutput
+					+ " to server.");
 			out.println(clientOutput);
 		}
 	}

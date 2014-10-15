@@ -16,17 +16,14 @@ public class ServerClientManagerThread implements Runnable {
 
 	@Override
 	public void run() {
-			try (
-					ServerSocket serverSocket = new ServerSocket(port)
-				)
-			{
-				while (true) {
-					receiveConnections(serverSocket);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+		try (ServerSocket serverSocket = new ServerSocket(port)) {
+			while (true) {
+				receiveConnections(serverSocket);
 			}
-				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private void receiveConnections(ServerSocket serverSocket)

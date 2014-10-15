@@ -6,21 +6,18 @@ import java.net.Socket;
 
 public class ConnectedClient implements Runnable {
 
-	ServerThread server;
-	Socket clientSocket;
+	private ServerThread server;
+	private Socket clientSocket;
 
 	public ConnectedClient(ServerThread server, Socket clientSocket) {
-			this.server = server;
-			this.clientSocket = clientSocket;
+		this.server = server;
+		this.clientSocket = clientSocket;
 	}
 
 	@Override
 	public void run() {
-		try (
-				BufferedReader in = new BufferedReader(new InputStreamReader(
-						clientSocket.getInputStream()))
-			) 
-		{
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(
+				clientSocket.getInputStream()))) {
 			while (true) {
 				String input = in.readLine();
 				server.clientInput(input);
