@@ -1,4 +1,4 @@
-package bafodepimenta;
+package client;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

@@ -1,4 +1,4 @@
-package bafodepimenta;
+package server;
 
 public class ServerClientManager {
 

@@ -1,4 +1,4 @@
-package bafodepimenta;
+package client;
 
 import java.io.PrintWriter;
 import java.net.Socket;

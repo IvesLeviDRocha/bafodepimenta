@@ -1,4 +1,4 @@
-package bafodepimenta;
+package client;
 
 public class ClientThread implements Runnable {
 

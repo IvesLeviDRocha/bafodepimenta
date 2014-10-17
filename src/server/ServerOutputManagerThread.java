@@ -1,4 +1,4 @@
-package bafodepimenta;
+package server;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -6,13 +6,13 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.UnknownHostException;
 
-public class ServerOutputManager {
+public class ServerOutputManagerThread implements Runnable {
 
 	private Integer port;
 	private InetAddress multicastGroup;
 	private ServerThread server;
 
-	public ServerOutputManager(ServerThread server, String group, Integer port) {
+	public ServerOutputManagerThread(ServerThread server, String group, Integer port) {
 		this.server = server;
 		this.port = port;
 		trySetGroup(group);
@@ -26,6 +26,11 @@ public class ServerOutputManager {
 		}
 	}
 
+	@Override
+	public void run() {
+		startOutput();
+	}
+	
 	public void startOutput() {
 		try (MulticastSocket outSocket = new MulticastSocket(port);) {
 			while (true) {

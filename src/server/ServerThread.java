@@ -1,4 +1,4 @@
-package bafodepimenta;
+package server;
 
 public class ServerThread implements Runnable {
 
@@ -10,7 +10,7 @@ public class ServerThread implements Runnable {
 	public void run() {
 		System.out.println("Server is up");
 		new ServerClientManager(port, this);
-		new ServerOutputManager(this, group, port).startOutput();
+		new ServerOutputManager(this, group, port);
 	}
 
 	public void clientInput(String input) {
@@ -20,5 +20,5 @@ public class ServerThread implements Runnable {
 	public String getContent() {
 		return content.toString();
 	}
-
+	
 }

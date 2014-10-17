@@ -1,6 +1,9 @@
 package bafodepimenta;
 
-public class TesteGeral {
+import server.Server;
+import client.Client;
+
+public class TestAutoServerClients {
 
 	public static void main(String[] args) throws Exception {
 
