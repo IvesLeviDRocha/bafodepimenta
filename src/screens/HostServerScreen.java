@@ -20,9 +20,9 @@ import java.awt.event.ActionEvent;
 public class HostServerScreen extends JPanel {
 
 	private static final long serialVersionUID = -2404820369095545899L;
-	
+
 	private HostServerManager manager;
-	
+
 	private JLabel lblPort;
 	private JLabel lblHostServer;
 	private JFormattedTextField txtPort;
@@ -31,7 +31,7 @@ public class HostServerScreen extends JPanel {
 
 	public HostServerScreen(HostServerManager manager) {
 		this.manager = manager;
-		initScreen();	
+		initScreen();
 	}
 
 	private void initScreen() {
@@ -45,7 +45,7 @@ public class HostServerScreen extends JPanel {
 		setLayout(null);
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 	}
-	
+
 	private void initComponents() {
 		initLblPort();
 		initHostServer();
@@ -81,11 +81,12 @@ public class HostServerScreen extends JPanel {
 		btnHost.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 24));
 		btnHost.setBounds(80, 218, 175, 45);
 	}
-	
+
 	private void btnHostPressed() {
 		String portText = txtPort.getText();
 		if (portText.equals("")) {
-			JOptionPane.showMessageDialog(null, "Por favor digite valores validos.");
+			JOptionPane.showMessageDialog(null,
+					"Por favor digite valores validos.");
 		} else {
 			Integer port = Integer.parseInt(portText);
 			manager.btnHostPressed(port);
@@ -102,11 +103,11 @@ public class HostServerScreen extends JPanel {
 		btnCancel.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 24));
 		btnCancel.setBounds(80, 306, 175, 45);
 	}
-	
+
 	private void btnCancelPressed() {
 		manager.btnCancelPressed();
 	}
-	
+
 	private void addComponents() {
 		add(lblPort);
 		add(lblHostServer);
@@ -114,6 +115,5 @@ public class HostServerScreen extends JPanel {
 		add(btnHost);
 		add(btnCancel);
 	}
-	
-	
+
 }

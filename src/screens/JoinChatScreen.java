@@ -21,9 +21,9 @@ import java.awt.event.ActionEvent;
 public class JoinChatScreen extends JPanel {
 
 	private static final long serialVersionUID = 8381785131392637562L;
-	
+
 	private JoinChatManager manager;
-	
+
 	private JTextField txtNickname;
 	private JLabel lblNickname;
 	private JLabel lblServerIP;
@@ -52,14 +52,14 @@ public class JoinChatScreen extends JPanel {
 	}
 
 	private void initComponents() {
-		initLblNickname();	
-		initLblServerIP();				
-		initLblPort();				
-		initBtnJoin();				
-		initBtnCancel();				
-		initTxtServerIP();				
-		initTxtPort();				
-		initTxtNickname();		
+		initLblNickname();
+		initLblServerIP();
+		initLblPort();
+		initBtnJoin();
+		initBtnCancel();
+		initTxtServerIP();
+		initTxtPort();
+		initTxtNickname();
 		initLblJoinChat();
 	}
 
@@ -91,13 +91,14 @@ public class JoinChatScreen extends JPanel {
 		btnJoin.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 24));
 		btnJoin.setBounds(85, 313, 175, 45);
 	}
-	
+
 	private void btnJoinPressed() {
 		String name = txtNickname.getText();
 		String ip = txtServerIP.getText();
 		String porttxt = txtPort.getText();
 		if (name.equals("") || ip.equals("") || porttxt.equals("")) {
-			JOptionPane.showMessageDialog(null, "Por favor digite valores validos.");
+			JOptionPane.showMessageDialog(null,
+					"Por favor digite valores validos.");
 		} else {
 			Integer port = Integer.parseInt(porttxt);
 			manager.btnJoinPressed(name, ip, port);
@@ -114,7 +115,7 @@ public class JoinChatScreen extends JPanel {
 		btnCancel.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 24));
 		btnCancel.setBounds(85, 384, 175, 45);
 	}
-	
+
 	private void btnCancelPressed() {
 		manager.btnCancelPressed();
 	}
@@ -140,7 +141,7 @@ public class JoinChatScreen extends JPanel {
 		lblJoinChat.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 32));
 		lblJoinChat.setBounds(100, 16, 146, 45);
 	}
-	
+
 	private void addComponents() {
 		add(lblNickname);
 		add(lblServerIP);

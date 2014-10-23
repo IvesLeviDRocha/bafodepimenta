@@ -12,7 +12,8 @@ public class ServerOutputManagerThread implements Runnable {
 	private InetAddress multicastGroup;
 	private ServerThread server;
 
-	public ServerOutputManagerThread(ServerThread server, String group, Integer port) {
+	public ServerOutputManagerThread(ServerThread server, String group,
+			Integer port) {
 		this.server = server;
 		this.port = port;
 		trySetGroup(group);
@@ -30,7 +31,7 @@ public class ServerOutputManagerThread implements Runnable {
 	public void run() {
 		startOutput();
 	}
-	
+
 	public void startOutput() {
 		try (MulticastSocket outSocket = new MulticastSocket(port);) {
 			while (true) {

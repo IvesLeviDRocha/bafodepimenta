@@ -6,10 +6,9 @@ public class ClientInputManager {
 
 	ClientInputManagerThread inputManager;
 
-	public ClientInputManager(String clientName, Integer port, String group,
+	public ClientInputManager(Integer port, String group,
 			ServiceController controller) {
-		inputManager = new ClientInputManagerThread(clientName, port, group,
-				controller);
+		inputManager = new ClientInputManagerThread(port, group, controller);
 		new Thread(inputManager).start();
 	}
 

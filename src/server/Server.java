@@ -3,10 +3,9 @@ package server;
 import java.net.InetAddress;
 
 import screens.HostingServerFrame;
-import sun.security.action.GetLongAction;
 
 public class Server {
-	
+
 	private ServerThread server;
 	private HostingServerFrame frame;
 
@@ -19,5 +18,5 @@ public class Server {
 		frame = new HostingServerFrame(ipparts[1], porttxt);
 		frame.setVisible(true);
 	}
-	
+
 }

@@ -8,12 +8,10 @@ import screens.MainFrame;
 public class ChatManager {
 
 	private ViewManager viewManager;
-	private MainFrame frame;
 	private ChatScreen screen;
 
 	public ChatManager(ViewManager viewManager, MainFrame frame) {
 		this.viewManager = viewManager;
-		this.frame = frame;
 		frame.setChatManager(this);
 	}
 
@@ -25,17 +23,17 @@ public class ChatManager {
 		screen.clearSendField();
 		viewManager.sendMessage(message);
 	}
-	
+
 	public void updateChat(String content) {
 		screen.updateChat(content);
 	}
-	
+
 	public JPanel getScreen(String nickname) {
 		screen = new ChatScreen(this);
 		setNickname(nickname);
 		return screen;
 	}
-	
+
 	public void setNickname(String name) {
 		screen.setNickname(name);
 	}

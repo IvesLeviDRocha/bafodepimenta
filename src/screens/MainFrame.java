@@ -7,7 +7,6 @@ import screenManagers.ChatManager;
 import screenManagers.HostServerManager;
 import screenManagers.JoinChatManager;
 import screenManagers.MainMenuManager;
-import screenManagers.ViewManager;
 
 public class MainFrame extends JFrame {
 
@@ -23,46 +22,43 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 	}
-	
+
 	public void showChatScreen(String nickname) {
 		showScreen(chatManager.getScreen(nickname));
 	}
-	
+
 	public void showHostServerScreen() {
 		showScreen(hostServerManager.getScreen());
 	}
-	
+
 	public void showJoinChatScreen() {
 		showScreen(joinChatManager.getScreen());
 	}
-	
+
 	public void showMainMenuScreen() {
 		showScreen(mainMenuManager.getScreen());
 	}
-	
+
 	private void showScreen(JPanel screen) {
 		setContentPane(screen);
 		pack();
 	}
-	
+
 	public void exit() {
 		System.exit(0);
 	}
-	
+
 	public void setChatManager(ChatManager chatManager) {
 		this.chatManager = chatManager;
 	}
-
 
 	public void setHostServerManager(HostServerManager hostServerManager) {
 		this.hostServerManager = hostServerManager;
 	}
 
-
 	public void setJoinChatManager(JoinChatManager joinChatManager) {
 		this.joinChatManager = joinChatManager;
 	}
-
 
 	public void setMainMenuManager(MainMenuManager mainMenuManager) {
 		this.mainMenuManager = mainMenuManager;

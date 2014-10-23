@@ -13,16 +13,16 @@ import java.awt.event.ActionEvent;
 public class HostingServerFrame extends JFrame {
 
 	private static final long serialVersionUID = 5010337889886975485L;
-	
+
 	private String ServerIP;
 	private String ServerPort;
-	
+
 	private JPanel contentPane;
 	private JLabel lblHostingServer;
 	private JLabel lblIP;
 	private JLabel lblPort;
 	private JButton btnCloseServer;
-	
+
 	public HostingServerFrame(String ip, String port) {
 		this.ServerIP = ip;
 		this.ServerPort = port;
@@ -64,18 +64,19 @@ public class HostingServerFrame extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnCloseServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnCloseServer
+				.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		btnCloseServer.setBounds(49, 150, 125, 34);
 	}
 
 	private void initLblPort() {
-		lblPort = new JLabel("Port: "+ServerPort);
+		lblPort = new JLabel("Port: " + ServerPort);
 		lblPort.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		lblPort.setBounds(10, 94, 204, 34);
 	}
 
 	private void initLblIP() {
-		lblIP = new JLabel("IP: "+ServerIP);
+		lblIP = new JLabel("IP: " + ServerIP);
 		lblIP.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		lblIP.setBounds(10, 60, 204, 34);
 	}
@@ -84,10 +85,11 @@ public class HostingServerFrame extends JFrame {
 		lblHostingServer = new JLabel("Hosting Server");
 		lblHostingServer.setBounds(49, 10, 125, 39);
 		lblHostingServer.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostingServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		lblHostingServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN,
+				16));
 		lblHostingServer.setBorder(new EmptyBorder(10, 10, 10, 10));
 	}
-	
+
 	private void addComponents() {
 		contentPane.add(lblHostingServer);
 		contentPane.add(lblIP);

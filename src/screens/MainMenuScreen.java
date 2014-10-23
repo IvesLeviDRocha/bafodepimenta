@@ -18,7 +18,7 @@ import java.awt.Color;
 public class MainMenuScreen extends JPanel {
 
 	private static final long serialVersionUID = 6827315437023277736L;
-	
+
 	private MainMenuManager manager;
 
 	private JButton btnJoinChat;
@@ -60,7 +60,7 @@ public class MainMenuScreen extends JPanel {
 		btnJoinChat.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
 		btnJoinChat.setBounds(61, 99, 200, 63);
 	}
-	
+
 	private void btnJoinChatPressed() {
 		manager.btnJoinChatPressed();
 	}
@@ -75,7 +75,7 @@ public class MainMenuScreen extends JPanel {
 		btnHostServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
 		btnHostServer.setBounds(61, 208, 200, 63);
 	}
-	
+
 	private void btnHostServerPressed() {
 		manager.btnHostServerPressed();
 	}
@@ -90,7 +90,7 @@ public class MainMenuScreen extends JPanel {
 		btnExit.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
 		btnExit.setBounds(61, 324, 200, 63);
 	}
-	
+
 	private void btnExitPressed() {
 		manager.btnExitPressed();
 	}

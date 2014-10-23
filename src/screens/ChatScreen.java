@@ -21,7 +21,7 @@ import java.awt.event.KeyEvent;
 public class ChatScreen extends JPanel {
 
 	private static final long serialVersionUID = -7844675847884893844L;
-	
+
 	private ChatManager manager;
 
 	private JTextField txtChat;
@@ -70,7 +70,7 @@ public class ChatScreen extends JPanel {
 		});
 		btnExit.setBounds(246, 7, 64, 23);
 	}
-	
+
 	private void btnExitPressed() {
 		manager.btnExitPressed();
 	}
@@ -90,7 +90,7 @@ public class ChatScreen extends JPanel {
 		txtChat.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					btnSendPressed();
 				}
 			}
@@ -109,7 +109,7 @@ public class ChatScreen extends JPanel {
 		btnSend.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		btnSend.setBounds(220, 410, 90, 34);
 	}
-	
+
 	private void btnSendPressed() {
 		String message = txtChat.getText();
 		manager.btnSendPressed(message);
@@ -124,15 +124,15 @@ public class ChatScreen extends JPanel {
 		add(txtChat);
 		add(btnSend);
 	}
-	
+
 	public void updateChat(String content) {
 		txtpnChatbox.setText(content);
 	}
-	
+
 	public void clearSendField() {
 		txtChat.setText("");
 	}
-	
+
 	public void setNickname(String name) {
 		lblNickname.setText(name);
 	}

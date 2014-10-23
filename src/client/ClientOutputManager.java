@@ -22,15 +22,14 @@ public class ClientOutputManager {
 		try {
 			outsocket = new Socket(serverAddress, port);
 			out = new PrintWriter(outsocket.getOutputStream(), true);
-			System.out.println(clientName + " connects to server.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(clientName + " unable to connect to server");
 		}
 	}
-	
+
 	public void sendMessage(String message) {
-		out.println(clientName+": "+message);
+		out.println(clientName + ": " + message);
 	}
 
 }

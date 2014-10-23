@@ -6,7 +6,7 @@ public class ServerThread implements Runnable {
 	private StringBuffer content = new StringBuffer("");
 	private String group = "239.239.239.239";
 	private int numLines = 0;
-	
+
 	public ServerThread(Integer port) {
 		this.port = port;
 	}
@@ -18,9 +18,9 @@ public class ServerThread implements Runnable {
 	}
 
 	public void clientInput(String input) {
-		content.append(input+"\n");
+		content.append(input + "\n");
 		numLines++;
-		if (numLines>18) {
+		if (numLines > 18) {
 			cleanContent();
 		}
 	}
@@ -28,15 +28,15 @@ public class ServerThread implements Runnable {
 	public String getContent() {
 		return content.toString();
 	}
-	
+
 	public void cleanContent() {
 		String[] contentLines = content.toString().split("\n");
 		content.delete(0, content.length());
 		content.append("");
 		for (int i = 9; i < contentLines.length; i++) {
-			content.append(contentLines[i]+"\n");
+			content.append(contentLines[i] + "\n");
 		}
-		numLines-=9;
+		numLines -= 9;
 	}
-	
+
 }

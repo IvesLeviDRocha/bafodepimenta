@@ -10,14 +10,12 @@ import bafodepimenta.ServiceController;
 public class ClientInputManagerThread implements Runnable {
 
 	private byte[] inBuffer = new byte[1024];
-	private String clientName;
 	private Integer port;
 	private InetAddress multicastGroup;
 	private ServiceController controller;
 
-	public ClientInputManagerThread(String clientName, Integer port,
-			String group, ServiceController controller) {
-		this.clientName = clientName;
+	public ClientInputManagerThread(Integer port, String group,
+			ServiceController controller) {
 		this.port = port;
 		this.controller = controller;
 		trySetGroup(group);

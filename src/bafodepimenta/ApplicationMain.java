@@ -4,7 +4,7 @@ public class ApplicationMain {
 
 	public static void main(String[] args) {
 
-		ServiceController controller = new ServiceController();
+		new ServiceController();
 
 	}
 

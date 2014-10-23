@@ -9,7 +9,6 @@ public class ClientThread implements Runnable {
 	private String serverAddress = "localhost";
 	private String name;
 	private ClientOutputManager outputManager;
-	private ClientInputManager inputManager;
 	private ServiceController controller;
 
 	public ClientThread(String name, Integer port, String serverAddress,
@@ -22,7 +21,7 @@ public class ClientThread implements Runnable {
 
 	@Override
 	public void run() {
-		inputManager = new ClientInputManager(name, port, group, controller);
+		new ClientInputManager(port, group, controller);
 		outputManager = new ClientOutputManager(name, serverAddress, port);
 	}
 
