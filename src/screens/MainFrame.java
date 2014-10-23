@@ -67,6 +67,7 @@ public class MainFrame extends JFrame {
 	public void setMainMenuManager(MainMenuManager mainMenuManager) {
 		this.mainMenuManager = mainMenuManager;
 		showScreen(this.mainMenuManager.getScreen());
+		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 

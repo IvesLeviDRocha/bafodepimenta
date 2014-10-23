@@ -19,6 +19,8 @@ public class HostServerManager {
 	
 	public void btnHostPressed(Integer port) {
 		viewManager.createServer(port);
+		frame.showMainMenuScreen();
+		frame.requestFocus();
 	}
 	
 	public void btnCancelPressed() {

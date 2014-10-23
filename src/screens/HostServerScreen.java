@@ -2,6 +2,7 @@ package screens;
 
 import java.awt.Dimension;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
 import screenManagers.HostServerManager;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -82,8 +84,12 @@ public class HostServerScreen extends JPanel {
 	
 	private void btnHostPressed() {
 		String portText = txtPort.getText();
-		Integer port = Integer.parseInt(portText);
-		manager.btnHostPressed(port);
+		if (portText.equals("")) {
+			JOptionPane.showMessageDialog(null, "Por favor digite valores validos.");
+		} else {
+			Integer port = Integer.parseInt(portText);
+			manager.btnHostPressed(port);
+		}
 	}
 
 	private void initBtnCancel() {

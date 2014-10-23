@@ -7,12 +7,14 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.EmptyBorder;
 
 import screenManagers.JoinChatManager;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -93,8 +95,13 @@ public class JoinChatScreen extends JPanel {
 	private void btnJoinPressed() {
 		String name = txtNickname.getText();
 		String ip = txtServerIP.getText();
-		Integer port = Integer.parseInt(txtPort.getText());
-		manager.btnJoinPressed(name, ip, port);
+		String porttxt = txtPort.getText();
+		if (name.equals("") || ip.equals("") || porttxt.equals("")) {
+			JOptionPane.showMessageDialog(null, "Por favor digite valores validos.");
+		} else {
+			Integer port = Integer.parseInt(porttxt);
+			manager.btnJoinPressed(name, ip, port);
+		}
 	}
 
 	private void initBtnCancel() {

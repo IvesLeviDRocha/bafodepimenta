@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import screenManagers.MainMenuManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class MainMenuScreen extends JPanel {
 
@@ -56,8 +57,8 @@ public class MainMenuScreen extends JPanel {
 				btnJoinChatPressed();
 			}
 		});
-		btnJoinChat.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 36));
-		btnJoinChat.setBounds(28, 73, 263, 93);
+		btnJoinChat.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
+		btnJoinChat.setBounds(61, 99, 200, 63);
 	}
 	
 	private void btnJoinChatPressed() {
@@ -71,8 +72,8 @@ public class MainMenuScreen extends JPanel {
 				btnHostServerPressed();
 			}
 		});
-		btnHostServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 36));
-		btnHostServer.setBounds(28, 207, 263, 93);
+		btnHostServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
+		btnHostServer.setBounds(61, 208, 200, 63);
 	}
 	
 	private void btnHostServerPressed() {
@@ -86,8 +87,8 @@ public class MainMenuScreen extends JPanel {
 				btnExitPressed();
 			}
 		});
-		btnExit.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 36));
-		btnExit.setBounds(28, 339, 263, 93);
+		btnExit.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
+		btnExit.setBounds(61, 324, 200, 63);
 	}
 	
 	private void btnExitPressed() {
@@ -96,8 +97,9 @@ public class MainMenuScreen extends JPanel {
 
 	private void initLblBafoDePimenta() {
 		lblBafoDePimenta = new JLabel("Bafo de Pimenta!");
-		lblBafoDePimenta.setFont(new Font("Lucida Console", Font.PLAIN, 16));
-		lblBafoDePimenta.setBounds(91, 24, 160, 14);
+		lblBafoDePimenta.setForeground(Color.BLUE);
+		lblBafoDePimenta.setFont(new Font("Lucida Console", Font.PLAIN, 18));
+		lblBafoDePimenta.setBounds(76, 24, 176, 26);
 	}
 
 	private void addComponents() {

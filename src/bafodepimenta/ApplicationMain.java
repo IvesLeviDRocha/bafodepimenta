@@ -1,6 +1,6 @@
 package bafodepimenta;
 
-public class TestThing {
+public class ApplicationMain {
 
 	public static void main(String[] args) {
 
