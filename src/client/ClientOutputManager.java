@@ -5,35 +5,32 @@ import java.net.Socket;
 
 public class ClientOutputManager {
 
-	private String clientName, serverAddress, clientOutput;
+	private String clientName, serverAddress;
 	private Integer port;
+	private Socket outsocket;
+	private PrintWriter out;
 
-	public ClientOutputManager(String clientName, String clientOutput,
-			String serverAddress, Integer port) {
+	public ClientOutputManager(String clientName, String serverAddress,
+			Integer port) {
 		this.clientName = clientName;
 		this.serverAddress = serverAddress;
-		this.clientOutput = clientOutput;
 		this.port = port;
+		tryConnectServer();
 	}
 
-	public void startOutput() {
-		try (Socket outsocket = new Socket(serverAddress, port);
-				PrintWriter out = new PrintWriter(outsocket.getOutputStream(),
-						true)) {
+	public void tryConnectServer() {
+		try {
+			outsocket = new Socket(serverAddress, port);
+			out = new PrintWriter(outsocket.getOutputStream(), true);
 			System.out.println(clientName + " connects to server.");
-			infiniteOutput(out);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(clientName + " unable to connect to server");
 		}
 	}
-
-	private void infiniteOutput(PrintWriter out) throws InterruptedException {
-		while (true) {
-			Thread.sleep(1000);
-			System.out.println(clientName + " sends " + clientOutput
-					+ " to server.");
-			out.println(clientOutput);
-		}
+	
+	public void sendMessage(String message) {
+		out.println(clientName+": "+message);
 	}
 
 }

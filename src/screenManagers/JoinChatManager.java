@@ -17,12 +17,13 @@ public class JoinChatManager {
 		frame.setJoinChatManager(this);
 	}
 	
-	public void btnJoinPressed() {
-		
+	public void btnJoinPressed(String name, String ip, Integer port) {
+		viewManager.createClient(name, ip, port);
+		frame.showChatScreen(name);
 	}
 	
 	public void btnCancelPressed() {
-		
+		frame.showMainMenuScreen();
 	}
 	
 	public JPanel getScreen() {

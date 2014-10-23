@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HostingServerFrame extends JFrame {
 
@@ -21,7 +23,9 @@ public class HostingServerFrame extends JFrame {
 	private JLabel lblPort;
 	private JButton btnCloseServer;
 	
-	public HostingServerFrame() {
+	public HostingServerFrame(String ip, String port) {
+		this.ServerIP = ip;
+		this.ServerPort = port;
 		initFrame();
 	}
 
@@ -55,18 +59,23 @@ public class HostingServerFrame extends JFrame {
 
 	private void initBtnCloseServer() {
 		btnCloseServer = new JButton("EXPLODE");
+		btnCloseServer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnCloseServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		btnCloseServer.setBounds(49, 150, 125, 34);
 	}
 
 	private void initLblPort() {
-		lblPort = new JLabel("Port:");
+		lblPort = new JLabel("Port: "+ServerPort);
 		lblPort.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		lblPort.setBounds(10, 94, 204, 34);
 	}
 
 	private void initLblIP() {
-		lblIP = new JLabel("IP:");
+		lblIP = new JLabel("IP: "+ServerIP);
 		lblIP.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
 		lblIP.setBounds(10, 60, 204, 34);
 	}

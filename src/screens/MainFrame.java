@@ -23,8 +23,24 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 	}
-
-	public void showScreen(JPanel screen) {
+	
+	public void showChatScreen(String nickname) {
+		showScreen(chatManager.getScreen(nickname));
+	}
+	
+	public void showHostServerScreen() {
+		showScreen(hostServerManager.getScreen());
+	}
+	
+	public void showJoinChatScreen() {
+		showScreen(joinChatManager.getScreen());
+	}
+	
+	public void showMainMenuScreen() {
+		showScreen(mainMenuManager.getScreen());
+	}
+	
+	private void showScreen(JPanel screen) {
 		setContentPane(screen);
 		pack();
 	}

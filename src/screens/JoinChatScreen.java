@@ -28,7 +28,7 @@ public class JoinChatScreen extends JPanel {
 	private JLabel lblPort;
 	private JButton btnJoin;
 	private JButton btnCancel;
-	private JFormattedTextField txtServerIP;
+	private JTextField txtServerIP;
 	private JFormattedTextField txtPort;
 	private JLabel lblJoinChat;
 
@@ -91,7 +91,10 @@ public class JoinChatScreen extends JPanel {
 	}
 	
 	private void btnJoinPressed() {
-		manager.btnJoinPressed();
+		String name = txtNickname.getText();
+		String ip = txtServerIP.getText();
+		Integer port = Integer.parseInt(txtPort.getText());
+		manager.btnJoinPressed(name, ip, port);
 	}
 
 	private void initBtnCancel() {
@@ -110,7 +113,7 @@ public class JoinChatScreen extends JPanel {
 	}
 
 	private void initTxtServerIP() {
-		txtServerIP = new JFormattedTextField(MaskFactory.createIPMask());
+		txtServerIP = new JTextField();
 		txtServerIP.setBounds(56, 184, 216, 34);
 	}
 

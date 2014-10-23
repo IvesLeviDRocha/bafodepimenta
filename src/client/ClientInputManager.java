@@ -1,10 +1,16 @@
 package client;
 
+import bafodepimenta.ServiceController;
+
 public class ClientInputManager {
 
-	public ClientInputManager(String clientName, Integer port, String group) {
-		new Thread(new ClientInputManagerThread(clientName, port, group))
-				.start();
+	ClientInputManagerThread inputManager;
+
+	public ClientInputManager(String clientName, Integer port, String group,
+			ServiceController controller) {
+		inputManager = new ClientInputManagerThread(clientName, port, group,
+				controller);
+		new Thread(inputManager).start();
 	}
 
 }

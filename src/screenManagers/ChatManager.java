@@ -18,16 +18,26 @@ public class ChatManager {
 	}
 
 	public void btnExitPressed() {
-
+		System.exit(0);
 	}
 
-	public void btnSendPressed() {
-
+	public void btnSendPressed(String message) {
+		screen.clearSendField();
+		viewManager.sendMessage(message);
 	}
 	
-	public JPanel getScreen() {
+	public void updateChat(String content) {
+		screen.updateChat(content);
+	}
+	
+	public JPanel getScreen(String nickname) {
 		screen = new ChatScreen(this);
+		setNickname(nickname);
 		return screen;
+	}
+	
+	public void setNickname(String name) {
+		screen.setNickname(name);
 	}
 
 }

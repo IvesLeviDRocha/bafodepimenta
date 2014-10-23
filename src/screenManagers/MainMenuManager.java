@@ -18,11 +18,11 @@ public class MainMenuManager {
 	}
 	
 	public void btnJoinChatPressed() {
-		
+		frame.showJoinChatScreen();
 	}
 	
 	public void btnHostServerPressed() {
-		
+		frame.showHostServerScreen();
 	}
 	
 	public void btnExitPressed() {

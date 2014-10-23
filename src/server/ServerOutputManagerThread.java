@@ -48,7 +48,6 @@ public class ServerOutputManagerThread implements Runnable {
 		DatagramPacket outPacket = new DatagramPacket(output.getBytes(),
 				output.length(), multicastGroup, port);
 		outSocket.send(outPacket);
-		System.out.println("Server sends content.");
 	}
 
 }

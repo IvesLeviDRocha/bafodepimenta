@@ -15,6 +15,8 @@ import screenManagers.ChatManager;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ChatScreen extends JPanel {
 
@@ -85,6 +87,14 @@ public class ChatScreen extends JPanel {
 
 	private void initTxtChat() {
 		txtChat = new JTextField();
+		txtChat.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+					btnSendPressed();
+				}
+			}
+		});
 		txtChat.setBounds(10, 365, 300, 34);
 		txtChat.setColumns(10);
 	}
@@ -101,7 +111,9 @@ public class ChatScreen extends JPanel {
 	}
 	
 	private void btnSendPressed() {
-		manager.btnSendPressed();
+		String message = txtChat.getText();
+		manager.btnSendPressed(message);
+		txtChat.requestFocus();
 	}
 
 	private void addComponents() {
@@ -111,5 +123,17 @@ public class ChatScreen extends JPanel {
 		scrollPane.setViewportView(txtpnChatbox);
 		add(txtChat);
 		add(btnSend);
+	}
+	
+	public void updateChat(String content) {
+		txtpnChatbox.setText(content);
+	}
+	
+	public void clearSendField() {
+		txtChat.setText("");
+	}
+	
+	public void setNickname(String name) {
+		lblNickname.setText(name);
 	}
 }

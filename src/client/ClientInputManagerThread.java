@@ -5,17 +5,21 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 
+import bafodepimenta.ServiceController;
+
 public class ClientInputManagerThread implements Runnable {
 
-	private byte[] inBuffer = new byte[256];
+	private byte[] inBuffer = new byte[1024];
 	private String clientName;
 	private Integer port;
 	private InetAddress multicastGroup;
+	private ServiceController controller;
 
 	public ClientInputManagerThread(String clientName, Integer port,
-			String group) {
+			String group, ServiceController controller) {
 		this.clientName = clientName;
 		this.port = port;
+		this.controller = controller;
 		trySetGroup(group);
 	}
 
@@ -39,11 +43,12 @@ public class ClientInputManagerThread implements Runnable {
 
 	private void receive(MulticastSocket inSocket) throws IOException {
 		while (true) {
+			inBuffer = new byte[1024];
 			DatagramPacket inPacket = new DatagramPacket(inBuffer,
 					inBuffer.length);
 			inSocket.receive(inPacket);
 			String received = new String(inPacket.getData());
-			System.out.println(this.clientName + " receives: " + received);
+			controller.updateChat(received);
 		}
 	}
 

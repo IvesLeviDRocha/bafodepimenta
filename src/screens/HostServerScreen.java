@@ -81,11 +81,13 @@ public class HostServerScreen extends JPanel {
 	}
 	
 	private void btnHostPressed() {
-		manager.btnHostPressed();
+		String portText = txtPort.getText();
+		Integer port = Integer.parseInt(portText);
+		manager.btnHostPressed(port);
 	}
 
 	private void initBtnCancel() {
-		btnCancel = new JButton("Cancel");
+		btnCancel = new JButton("Back");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnCancelPressed();

@@ -17,12 +17,12 @@ public class HostServerManager {
 		frame.setHostServerManager(this);
 	}
 	
-	public void btnHostPressed() {
-		
+	public void btnHostPressed(Integer port) {
+		viewManager.createServer(port);
 	}
 	
 	public void btnCancelPressed() {
-		
+		frame.showMainMenuScreen();
 	}
 	
 	public JPanel getScreen() {
