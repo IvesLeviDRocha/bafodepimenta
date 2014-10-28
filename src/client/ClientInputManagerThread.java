@@ -9,7 +9,7 @@ import bafodepimenta.ServiceController;
 
 public class ClientInputManagerThread implements Runnable {
 
-	private byte[] inBuffer = new byte[1024];
+	private byte[] inBuffer = new byte[2048];
 	private Integer port;
 	private InetAddress multicastGroup;
 	private ServiceController controller;

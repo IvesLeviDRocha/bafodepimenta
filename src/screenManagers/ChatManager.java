@@ -25,6 +25,9 @@ public class ChatManager {
 	}
 
 	public void updateChat(String content) {
+		if(screen==null) {
+			screen = new ChatScreen(this);
+		}
 		screen.updateChat(content);
 	}
 

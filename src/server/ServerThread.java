@@ -18,6 +18,10 @@ public class ServerThread implements Runnable {
 	}
 
 	public void clientInput(String input) {
+		if (input.toLowerCase().contains("paulo")) {
+			input = input.replaceAll("aulo", "ablo");
+			input = input.replaceAll("PAULO", "PABLO");
+		}
 		content.append(input + "\n");
 		numLines++;
 		if (numLines > 18) {

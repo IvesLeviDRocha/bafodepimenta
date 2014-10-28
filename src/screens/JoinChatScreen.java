@@ -96,6 +96,9 @@ public class JoinChatScreen extends JPanel {
 		String name = txtNickname.getText();
 		String ip = txtServerIP.getText();
 		String porttxt = txtPort.getText();
+		if (name.toLowerCase().equals("paulo")) {
+			name = "Pablo";
+		}
 		if (name.equals("") || ip.equals("") || porttxt.equals("")) {
 			JOptionPane.showMessageDialog(null,
 					"Por favor digite valores validos.");

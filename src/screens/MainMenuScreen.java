@@ -14,6 +14,7 @@ import screenManagers.MainMenuManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class MainMenuScreen extends JPanel {
 
@@ -25,6 +26,7 @@ public class MainMenuScreen extends JPanel {
 	private JButton btnHostServer;
 	private JButton btnExit;
 	private JLabel lblBafoDePimenta;
+	private JLabel lblSobre;
 
 	public MainMenuScreen(MainMenuManager manager) {
 		this.manager = manager;
@@ -48,6 +50,7 @@ public class MainMenuScreen extends JPanel {
 		initBtnHostServer();
 		initBtnExit();
 		initLblBafoDePimenta();
+		initLblSobre();
 	}
 
 	private void initBtnJoinChat() {
@@ -58,7 +61,7 @@ public class MainMenuScreen extends JPanel {
 			}
 		});
 		btnJoinChat.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
-		btnJoinChat.setBounds(61, 99, 200, 63);
+		btnJoinChat.setBounds(61, 80, 200, 63);
 	}
 
 	private void btnJoinChatPressed() {
@@ -73,7 +76,7 @@ public class MainMenuScreen extends JPanel {
 			}
 		});
 		btnHostServer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
-		btnHostServer.setBounds(61, 208, 200, 63);
+		btnHostServer.setBounds(61, 180, 200, 63);
 	}
 
 	private void btnHostServerPressed() {
@@ -88,7 +91,7 @@ public class MainMenuScreen extends JPanel {
 			}
 		});
 		btnExit.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 30));
-		btnExit.setBounds(61, 324, 200, 63);
+		btnExit.setBounds(61, 280, 200, 63);
 	}
 
 	private void btnExitPressed() {
@@ -101,11 +104,23 @@ public class MainMenuScreen extends JPanel {
 		lblBafoDePimenta.setFont(new Font("Lucida Console", Font.PLAIN, 18));
 		lblBafoDePimenta.setBounds(76, 24, 176, 26);
 	}
+	
+	private void initLblSobre() {
+		lblSobre = new JLabel(
+				"<html>  Desenvolvido por: <br> "
+				+ "  Levi & Paulo <br> "
+				+ "2º Semestre ADS Unifor 2014 </html>");
+		lblSobre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSobre.setForeground(Color.BLACK);
+		lblSobre.setFont(new Font("Lucida Console", Font.PLAIN, 18));
+		lblSobre.setBounds(6, 380, 308, 75);
+	}
 
 	private void addComponents() {
 		add(btnJoinChat);
 		add(btnHostServer);
 		add(btnExit);
 		add(lblBafoDePimenta);
+		add(lblSobre);
 	}
 }
