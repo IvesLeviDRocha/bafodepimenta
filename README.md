@@ -1,4 +1,4 @@
 bafodepimenta
 =============
 
-Chat simples
+Simple TCP/IP based desktop online chat application.
